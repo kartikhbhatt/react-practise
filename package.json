@@ -4,6 +4,8 @@
   "description": "learining react",
   "main": "app.js",
   "scripts": {
+    "start" : "parcel index.html",
+    "build" : "pracel build index.html",
     "test": "jest"
   },
   "repository": {
