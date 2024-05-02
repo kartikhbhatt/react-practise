@@ -80,3 +80,7 @@
 .filter {
    display: flex;
 }
+.remove-link {
+   text-decoration: none;
+   color: black;
+}
