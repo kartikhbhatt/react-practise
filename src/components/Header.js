@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 

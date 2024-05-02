@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import RestaurantCards from "./RestaurantCard";
 import Shimmer from "./Shimmer";
@@ -79,10 +80,11 @@ const Body = () => {
          <div className="res-container">
             {filteredRestaurant.map((restaurant) => {
                return (
-                  <Link to={"/restaurant/" + restaurant?.info.id} key={restaurant?.info.id}>
-                     <RestaurantCards
-                        {...restaurant?.info}
-                     />
+                  <Link
+                     to={"/restaurant/" + restaurant?.info?.id}
+                     key={restaurant?.info.id}
+                  >
+                     <RestaurantCards {...restaurant?.info} />
                   </Link>
                );
             })}

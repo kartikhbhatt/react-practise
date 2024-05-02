@@ -1,15 +1,10 @@
 import { CDN_URL } from "../utils/constants";
+import React from "react";
+import PropTypes from "prop-types";
 
 const RestaurantCards = (props) => {
    // const { resData } = props;
-   const {
-      cloudinaryImageId,
-      name,
-      avgRating,
-      cuisines,
-      costForTwo,
-      deliveryTime,
-   } = props;
+   const { cloudinaryImageId, name, avgRating, cuisines, deliveryTime } = props;
    return (
       <div className="res-card">
          <img
@@ -25,6 +20,14 @@ const RestaurantCards = (props) => {
          {/* <h4>{props.sla.deliveryTime}</h4> */}
       </div>
    );
+};
+
+RestaurantCards.propTypes = {
+   cloudinaryImageId: PropTypes.string.isRequired,
+   name: PropTypes.string.isRequired,
+   avgRating: PropTypes.number.isRequired,
+   cuisines: PropTypes.arrayOf(PropTypes.string).isRequired,
+   deliveryTime: PropTypes.number.isRequired,
 };
 
 export default RestaurantCards;

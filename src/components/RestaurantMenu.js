@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import React from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constants";
@@ -24,11 +25,17 @@ const RestaurantMenu = () => {
 
    if (resInfo === null) return <Shimmer />;
 
-   const { name, cuisines, costForTwoMessage } =
-      resInfo?.cards[2]?.card?.card?.info;
-   const { itemCards } =
-      resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-         .card;
+   const {
+      name = "",
+      cuisines = [""],
+      costForTwoMessage = "",
+   } = (!!resInfo?.cards && resInfo?.cards[2]?.card?.card?.info) || {};
+
+   const { itemCards = {} } =
+      (!!resInfo?.cards &&
+         resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+            .card) ||
+      {};
 
    return (
       <div className="menu">
