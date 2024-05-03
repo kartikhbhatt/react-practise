@@ -6,20 +6,31 @@ const RestaurantCards = (props) => {
    // const { resData } = props;
    const { cloudinaryImageId, name, avgRating, cuisines, deliveryTime } = props;
    return (
-      <div className="res-card">
+      <div className="res-card m-4 p-4 h-[500] w-[300] bg-gray-100 hover:shadow-lg rounded-lg hover:bg-gray-200">
          <img
-            className="res-logo"
+            className="res-logo rounded-lg"
             src={CDN_URL + cloudinaryImageId}
             alt="logo"
             srcSet=""
          />
-         <h3>{name}</h3>
+         <h3 className="font-bold py-4 text-lg">{name}</h3>
          <h4>{cuisines.join(", ")}</h4>
          <h4>{avgRating}</h4>
-         <h4>{deliveryTime}</h4>
-         {/* <h4>{props.sla.deliveryTime}</h4> */}
+         {/* <h4>{deliveryTime}</h4> */}
+         <h4>Delivery time: {props.sla.deliveryTime} minutes</h4>
       </div>
    );
+};
+
+export const withPromotedLabel = (RestaurantCards) => {
+   return (props) => {
+      return (
+         <div>
+            <label>Promoted</label>
+            <RestaurantCard {...props} />
+         </div>
+      );
+   };
 };
 
 RestaurantCards.propTypes = {
