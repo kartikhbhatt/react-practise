@@ -1,13 +1,13 @@
 import React from "react";
 import ItemList from "./ItemList";
 import { useState } from "react";
-const RestaurantCategories = (props) => {
-   const { title = "", itemCards = {} } = props?.data;
+const RestaurantCategories = ({ data, isVisible, setshowItems }) => {
+   const { title = "", itemCards = {} } = data;
    // console.log(props.data, itemCards.length);
    // console.log(itemCards);
-   const [showItems, setshowItems] = useState(false);
+
    const handelClick = () => {
-      setshowItems(!showItems);
+      setshowItems();
    };
 
    return (
@@ -21,7 +21,7 @@ const RestaurantCategories = (props) => {
             </h2>
          </div>
 
-         {showItems && <ItemList data={itemCards} />}
+         {isVisible && <ItemList data={itemCards} />}
       </div>
    );
 };
